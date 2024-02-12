@@ -46,4 +46,5 @@ contract.methods.consultarRegistro('dirección del usuario').call()
 .then(function(registro) {
   console.log('Registro encontrado:', registro);
 });
+truffle console --network polygon
 
