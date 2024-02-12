@@ -1,5 +1,5 @@
 truffle console --network polygon 
-const abi = [const abi = [
+abi = [ = [const abi = [
   {
     "constant": false,
     "inputs": [
@@ -42,7 +42,7 @@ contract.methods.registrar('contenido a registrar').send({from: 'tu dirección a
 .then(function(receipt) {
   console.log(receipt);
 });
-contract.methods.consultarRegistro('dirección del usuario').call()
+contract.methods.consultarRegistro(0x33445F00C6fd0814ce8FdfDdb5250166Ae42cf5a).call()
 .then(function(registro) {
   console.log('Registro encontrado:', registro);
 });
