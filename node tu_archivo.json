@@ -1,0 +1,41 @@
+// Importar Web3.js
+const Web3 = require('web3');
+
+// Configurar proveedor de nodo de Polygon (Matic)
+const provider = new Web3.providers.HttpProvider('https://rpc-mainnet.maticvigil.com');
+
+// Crear una instancia de Web3
+const web3 = new Web3(provider);
+
+// ABI (Interfaz del contrato)
+const abi = [
+  // Aquí va el ABI proporcionado
+];
+
+// Dirección del contrato inteligente en la red de Polygon
+const contractAddress = '0x33445F00C6fd0814ce8FdfDdb5250166Ae42cf5a';
+
+// Crear una instancia del contrato inteligente
+const contract = new web3.eth.Contract(abi, contractAddress);
+
+// Registra un nuevo contenido
+const contenido = 'Contenido a registrar';
+const cuenta = 'tu dirección aquí';
+
+contract.methods.registrar(contenido).send({ from: cuenta })
+  .on('transactionHash', function(hash) {
+    console.log('Transacción enviada:', hash);
+  })
+  .on('error', function(error) {
+    console.error('Error al enviar la transacción:', error);
+  });
+
+// Consulta el registro
+const cuentaConsulta = 'dirección del usuario';
+contract.methods.consultarRegistro(cuentaConsulta).call()
+  .then(function(registro) {
+    console.log('Registro encontrado:', registro);
+  })
+  .catch(function(error) {
+    console.error('Error al consultar el registro:', error);
+  });
