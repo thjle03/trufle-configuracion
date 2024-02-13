@@ -39,3 +39,4 @@ contract.methods.consultarRegistro(cuentaConsulta).call()
   .catch(function(error) {
     console.error('Error al consultar el registro:', error);
   });
+node tu_archivo.js
