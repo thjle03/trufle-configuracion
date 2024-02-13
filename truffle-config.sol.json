@@ -61,3 +61,4 @@ contract.methods.consultarRegistro('0x33445F00C6fd0814ce8FdfDdb5250166Ae42cf5a')
 .then(function(registro) {
   console.log('Registro encontrado:', registro);
 });
+
